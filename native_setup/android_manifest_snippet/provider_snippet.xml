@@ -1,0 +1,16 @@
+<!--
+  把下面這段 <provider> 加到 android/app/src/main/AndroidManifest.xml 的
+  <application> 標籤「裡面」(跟 <activity> 平行,不是外面)。
+
+  這是讓「自訂通知鈴聲」跟「隱患回報上傳圖片」能把 App 私有檔案
+  轉換成系統看得懂的 content:// URI 所需要的設定。
+-->
+<provider
+    android:name="androidx.core.content.FileProvider"
+    android:authorities="${applicationId}.fileprovider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+    <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/file_paths" />
+</provider>

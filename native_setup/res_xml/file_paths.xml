@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  存到 android/app/src/main/res/xml/file_paths.xml
+  (res 資料夾下面要新增一個 xml 資料夾)
+-->
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <files-path name="notification_sounds" path="notification_sounds/" />
+    <files-path name="backgrounds" path="backgrounds/" />
+</paths>
