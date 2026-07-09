@@ -1,0 +1,20 @@
+name: Build Android APK
+on: push
+jobs:
+  build_apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: stable
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Build debug apk
+        run: flutter build apk --debug --target-platform android-arm64
+      - name: Upload compiled APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: HeatSafety_APK
+          path: build/app/outputs/flutter-apk/app-debug.apk
