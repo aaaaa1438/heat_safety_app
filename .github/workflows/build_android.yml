@@ -6,16 +6,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          accept-android-sdk-licenses: true
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.44.5"
-
-      - name: Install Android SDK dependencies
-        run: |
-          flutter config --android-sdk /usr/lib/android-sdk
-          sudo apt-get update
-          sudo apt-get install -y android-sdk
+          channel: "stable"
 
       - name: Install dependencies
         run: flutter pub get
