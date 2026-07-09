@@ -11,6 +11,12 @@ jobs:
         with:
           flutter-version: "3.24.0"
 
+      - name: Install Android SDK dependencies
+        run: |
+          flutter config --android-sdk /usr/lib/android-sdk
+          sudo apt-get update
+          sudo apt-get install -y android-sdk
+
       - name: Install dependencies
         run: flutter pub get
 
